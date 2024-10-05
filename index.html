@@ -1,700 +1,414 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Game Pride is UNlimited.</title><style>
-/* cspell:disable-file */
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-@media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
-
-body {
-	line-height: 1.5;
-	white-space: pre-wrap;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-.callout {
-	border-radius: 3px;
-	padding: 1rem;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	padding-inline-start: 0;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-.page-description {
-    margin-bottom: 2em;
-}
-
-.simple-table {
-	margin-top: 1em;
-	font-size: 0.875rem;
-	empty-cells: show;
-}
-.simple-table td {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table th {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table-header-color {
-	background: rgb(247, 246, 243);
-	color: black;
-}
-.simple-table-header {
-	font-weight: 500;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-block;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-img.icon {
-	border-radius: 3px;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-cover-image {
-	display: block;
-	object-fit: cover;
-	width: 100%;
-	max-height: 30vh;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon-with-cover {
-	margin-top: -0.72em;
-	margin-left: 0.07em;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	background: rgba(135, 131, 120, 0.15);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-	tab-size: 2;
-}
-
-code {
-	color: #eb5757;
-}
-
-.code {
-	padding: 1.5em 1em;
-}
-
-.code-wrap {
-	white-space: pre-wrap;
-	word-break: break-all;
-}
-
-.code > code {
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	font-size: 1.25em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
-}
-
-.bookmark {
-	text-decoration: none;
-	max-height: 8em;
-	padding: 0;
-	display: flex;
-	width: 100%;
-	align-items: stretch;
-}
-
-.bookmark-title {
-	font-size: 0.85em;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	height: 1.75em;
-	white-space: nowrap;
-}
-
-.bookmark-text {
-	display: flex;
-	flex-direction: column;
-}
-
-.bookmark-info {
-	flex: 4 1 180px;
-	padding: 12px 14px 14px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.bookmark-image {
-	width: 33%;
-	flex: 1 1 180px;
-	display: block;
-	position: relative;
-	object-fit: cover;
-	border-radius: 1px;
-}
-
-.bookmark-description {
-	color: rgba(55, 53, 47, 0.6);
-	font-size: 0.75em;
-	overflow: hidden;
-	max-height: 4.5em;
-	word-break: break-word;
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	margin-top: 0.25em;
-}
-
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
-.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
-.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
-.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
-.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
-.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
-.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.highlight-default {
-	color: rgba(55, 53, 47, 1);
-}
-.highlight-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.highlight-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.highlight-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.highlight-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.highlight-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.highlight-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.highlight-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.highlight-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.highlight-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.highlight-default_background {
-	color: rgba(55, 53, 47, 1);
-}
-.highlight-gray_background {
-	background: rgba(241, 241, 239, 1);
-}
-.highlight-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.highlight-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.highlight-yellow_background {
-	background: rgba(251, 237, 214, 1);
-}
-.highlight-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.highlight-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.highlight-purple_background {
-	background: rgba(244, 240, 247, 0.8);
-}
-.highlight-pink_background {
-	background: rgba(249, 238, 243, 0.8);
-}
-.highlight-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.block-color-default {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.block-color-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.block-color-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.block-color-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.block-color-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.block-color-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.block-color-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.block-color-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.block-color-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.block-color-default_background {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray_background {
-	background: rgba(241, 241, 239, 1);
-}
-.block-color-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.block-color-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.block-color-yellow_background {
-	background: rgba(251, 237, 214, 1);
-}
-.block-color-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.block-color-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.block-color-purple_background {
-	background: rgba(244, 240, 247, 0.8);
-}
-.block-color-pink_background {
-	background: rgba(249, 238, 243, 0.8);
-}
-.block-color-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
-.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
-.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
-.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
-.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
-.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
-.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
-.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
-.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
-.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
-.select-value-color-yellow { background-color: rgba(249, 228, 188, 1); }
-.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
-.select-value-color-pageGlass { background-color: undefined; }
-.select-value-color-washGlass { background-color: undefined; }
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-	
-</style>
-<link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
-<link rel="icon" href="image/favicon.ico" type="image/x-icon">
-</head><body><article id="8b0d72d1-b2d8-485a-8197-8cb926831a8a" class="page sans"><header><img class="page-cover-image" src="Game%20Pride%20is%20UNlimited%208b0d72d1b2d8485a81978cb926831a8a/GPUN_%25ED%2594%2584%25EB%25A1%259C%25EC%25A0%259D%25ED%258A%25B8_%25EC%259D%25BC%25EB%259F%25AC%25EC%258A%25A4%25ED%258A%25B8_0424(1920x1080).png" style="object-position:center 29.279999999999994%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Game%20Pride%20is%20UNlimited%208b0d72d1b2d8485a81978cb926831a8a/gpunlogo.png"/></div><h1 class="page-title">Game Pride is UNlimited.</h1><p class="page-description"></p></header><div class="page-body"><p id="0e4b4896-f2ec-41ea-bf08-ca134d26a0db" class="">좋은 게임을 만든다는 <strong>자부심이 무한대</strong>로 펼쳐지는 곳, <strong>GPUN</strong>입니다.</p><p id="23bb3169-4416-4e96-b775-28f9304c2e68" class="">
-</p><figure id="a54c677d-5123-408d-b11b-7eaea05c0b1d" class="image"><a href="Game%20Pride%20is%20UNlimited%208b0d72d1b2d8485a81978cb926831a8a/%25EC%259D%25BC%25EB%259F%25AC%25EC%258A%25A4%25ED%258A%25B8_02_0530(1920x1080).jpg"><img style="width:708px" src="Game%20Pride%20is%20UNlimited%208b0d72d1b2d8485a81978cb926831a8a/%25EC%259D%25BC%25EB%259F%25AC%25EC%258A%25A4%25ED%258A%25B8_02_0530(1920x1080).jpg"/></a></figure><p id="a5b66b11-6226-4331-8c50-d8f8e184e70b" class="">
-</p><h3 id="6c639fb1-9dce-4f70-9a64-b113d1d5c813" class="">GPUN 소개: 자랑스럽게 내세울 수 있는 게임을 만듭니다</h3><p id="6d0900c5-d735-4c8c-9e97-4d36abddae7c" class="">GPUN은 자랑스러운 게임을 만들기 위해 모인 사람들의 회사입니다. 내가 담당했다고, 우리가 만들었다고 자랑스럽게 말할 수 있는 게임, 그런 게임이 무한히 만들어지는 곳입니다. </p><p id="3149333b-0915-4e13-b2c9-ae1ffb160cdf" class="">
-</p><h3 id="0fbe38a4-cba6-4862-8f91-bb3ad69c689d" class="">우리의 강점: 서브컬처 성공 경험이 있습니다</h3><p id="7a078271-e205-4c95-8b57-7643199eea68" class="">구성원 대부분이 서브컬처에 대해 잘 알고 있으며 팀 셋팅부터 론칭, 라이브까지 성공적으로 수행한 경험이 있습니다. 우리는 서브컬처의 새로운 시대를 여는 프로젝트에 도전합니다.</p><p id="1d15a77b-07f1-4423-8592-860d43aab3bd" class="">
-</p><h3 id="c22fa47b-ca22-437e-906b-363ddb4d8e33" class="">우리의 문화: 평등, 존중, 신뢰</h3><p id="46d4d214-7073-44af-bcbb-e055627bca58" class=""><strong>우리는 평등합니다.</strong> 직무, 직책, 성별, 나이 등에 영향 받지 않고 한 사람의 자랑스러운 구성원으로써 정보를 공유합니다.</p><p id="decc888d-7c35-4e9a-8ec5-b35446a51e2a" class=""><strong>우리는 존중 받습니다.</strong> 스스로의 실력에 자부심을 갖고 있으며 열정적으로 일합니다. 우리는 서로를 소중한 동료로, 인격체로 존중합니다.</p><p id="efbf4a1b-b048-4983-87ff-b24244fe6ddf" class=""><strong>우리는 서로 신뢰합니다.</strong> 혼자서 할 수 있는 일이 아닌 굉장한 일을 함께 하고 있습니다. 서로 신뢰하며 좋은 결과를 낼 수 있도록 노력합니다. </p><p id="ddc05f30-6b56-4629-8be5-e3fb0cb4f968" class="">
-</p><figure id="c6188fa6-3136-4adf-892a-43159499f11b" class="image"><a href="Game%20Pride%20is%20UNlimited%208b0d72d1b2d8485a81978cb926831a8a/002.png"><img style="width:720px" src="Game%20Pride%20is%20UNlimited%208b0d72d1b2d8485a81978cb926831a8a/002.png"/></a></figure><p id="db2fc8d0-4bb6-48db-bacb-fd51e102add3" class="">
-</p><h3 id="20708762-678c-4d4a-92d5-bea129a4685a" class=""><strong>프로젝트: 모바일 서브컬처 메카닉 슈팅 테라리움(Terrarium)</strong></h3><p id="d5aa002e-d97d-466a-b4c5-b407c139f596" class="">외계생명체의 침략으로 지하에 갇힌 인류가 <strong>안드로이드 파일럿</strong>을 <strong>메카닉</strong>에 태워 지구를 수복하는 과정을 그리고 있습니다. 유저는 사령관이 되어 <strong>지하 기지 테라리움</strong>에서 파일럿을 육성하고 메카닉을 개발하면서 외계생명체를 물리치는 임무를 수행하게 됩니다. </p><p id="39f10770-388b-4985-8786-6f33d8810bc8" class="">
-</p><p id="5e5cbf28-bc17-4808-b0c5-86ffa82762d7" class="">
-</p><figure id="bf0ebe36-c5f4-4bb2-ae1a-b1160fa55c45" class="image"><a href="Game%20Pride%20is%20UNlimited%208b0d72d1b2d8485a81978cb926831a8a/20240413_094130.jpg"><img style="width:708px" src="Game%20Pride%20is%20UNlimited%208b0d72d1b2d8485a81978cb926831a8a/20240413_094130.jpg"/></a></figure><p id="a1f66ea8-e0ae-43c4-a4d1-f33a81713e11" class="">
-</p><h3 id="244ef8d9-f79d-4e08-8783-6b882aa76fe4" class=""><strong>[24.10.02] 지피유엔(GPUN) 쇼케이스   </strong></h3><p id="46692d3f-4467-4b44-8071-9bb2628507b9" class="">현재 <strong>서브컬처 메카닉 슈팅</strong> &lt;테라리움<strong>(</strong>Terrarium<strong>)</strong>&gt;을 개발 중이며 프리프로덕션 단계가 마무리되어 <strong>쇼케이스</strong> 통하여 인사드릴 예정입니다. 많은 관심 부탁드립니다. <br/><br/></p><figure id="eb85ac56-7cb1-41d1-9ff6-2f99c2569f0f" class="image"><a href="Game%20Pride%20is%20UNlimited%208b0d72d1b2d8485a81978cb926831a8a/%25EC%2587%25BC%25EC%25BC%2580%25EC%259D%25B4%25EC%258A%25A4_%25EC%2598%2588%25EA%25B3%25A0.jpg"><img style="width:708px" src="Game%20Pride%20is%20UNlimited%208b0d72d1b2d8485a81978cb926831a8a/%25EC%2587%25BC%25EC%25BC%2580%25EC%259D%25B4%25EC%258A%25A4_%25EC%2598%2588%25EA%25B3%25A0.jpg"/></a></figure><h3 id="1320469d-c6e8-4239-9380-5cc6a2d7c4a1" class="">히스토리</h3><ul id="83499f3c-e65d-444d-b934-653a2061da03" class="bulleted-list"><li style="list-style-type:disc">2024.04 (주)코나 벤처 파트너스 투자 유치</li></ul><ul id="8f5fdb9a-5ac3-454d-8c77-5041e4baabe2" class="bulleted-list"><li style="list-style-type:disc">2024.03 (주)카카오벤처스 투자 유치</li></ul><ul id="c0caa295-b222-40ab-b590-cf24530051f3" class="bulleted-list"><li style="list-style-type:disc">2024.02 (주)GPUN 설립</li></ul><p id="0582394f-aba1-4cb2-9603-8b96d9bbc443" class="">
-</p><h3 id="f55734d0-6c53-43c2-aa9f-17a8df2909ab" class="">뉴스</h3><figure id="87af8da6-fa0c-4f8c-8271-98b7281cbcf9" class="image"><a href="Game%20Pride%20is%20UNlimited%208b0d72d1b2d8485a81978cb926831a8a/20240607151011_9301w.jpg"><img style="width:708px" src="Game%20Pride%20is%20UNlimited%208b0d72d1b2d8485a81978cb926831a8a/20240607151011_9301w.jpg"/></a></figure><p id="819efb11-c3a2-42c8-ab53-2e43cb19d72d" class=""><strong><a href="https://dailian.co.kr/news/view/1370142">[인터뷰] ‘니케’ 개발진의 홀로서기 “서브컬처 슈팅 장르에 새로움 더하겠다”</a></strong></p><p id="619ee36b-ff52-4585-814f-0457356cfdce" class=""><strong><a href="https://www.thisisgame.com/webzine/news/nboard/5/?n=189933?n">‘테라리움’ 이 지옥같은 행성 배경의 메카닉+미소녀 서브컬처 게임</a></strong></p><p id="8b1e37eb-ece1-4cfa-a35f-2e5dcf1ee186" class=""><a href="https://www.inven.co.kr/webzine/news/?news=295409&amp;iskin=diablo2"><strong>서브컬처 게임사 지피유엔, 카카오벤처스 등서 17억 투자 유치</strong></a></p><p id="359786b2-7927-4255-b0d1-ce32daf220c0" class="">
-</p><h3 id="51c5fbeb-92c6-489f-85fd-3c10f791e56f" class="">찾아오시는 길</h3><figure id="9673daf6-a373-40af-9a74-f18379e4da7d"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6329.103674582756!2d127.024396!3d37.51848700000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca333b3def0bb%3A0x5de434ee96bf5a53!2z7Yyo7Iqk7Yq47YyM7J2067iMIOyLoOyCrOygkA!5e0!3m2!1sko!2skr!4v1712802595802!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></figure><p id="75d66b78-c60d-4cfa-94f8-34d1985bb49d" class=""><strong>주소</strong> 서울시 강남구 도산대로 145, 12층 1207호</p><p id="8712519e-46e7-4102-afab-949c21d47abb" class=""><strong>채용</strong> <a href="mailto:recruit@gpun.co.kr">recruit@gpun.co.kr</a> </p><p id="f1eacefd-d118-498f-9355-ffe25e3f76e4" class=""><strong>IR문의</strong> <a href="mailto:ir@gpun.co.kr">ir@gpun.co.kr</a> </p><p id="b5272995-ebc6-4aea-bb42-f6620e62cd8b" class="">
-</p><figure id="6c944a9c-a3dc-430e-a86a-b9d661399034" class="image" style="text-align:left"><a href="Game%20Pride%20is%20UNlimited%208b0d72d1b2d8485a81978cb926831a8a/GPUN_CI_256(Alpha).png"><img style="width:72px" src="Game%20Pride%20is%20UNlimited%208b0d72d1b2d8485a81978cb926831a8a/GPUN_CI_256(Alpha).png"/></a></figure><p id="09680917-e8e5-452b-ba33-041c701bca33" class="">© 2024 GPUN All rights reserved.</p><p id="6f3e947a-f33d-4d2e-9368-add11de6c8e4" class="">
-</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>GPUN</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+  <!-- favicon -->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <div class="company_intro">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              GPUN Corp
+            </span>
+          </a>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class=" slider_section position-relative">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container">
+              <div class="col-lg-10 col-md-11 mx-auto">
+                <div class="detail-box">
+                  <div>
+                    <img src="images/GPUN_CI_256_white.png" alt="GPUN Logo" style="max-width: 160px;">
+                    <br>GAME PRIDE IS UNLIMITED</br>
+                    <br>
+                    <h2>
+                      우리가 만드는 게임에<br>
+                      무한한 자부심을 가지자
+                    </h2>
+                    <br>
+                    <h5>2024.10 프로젝트 테라리움 쇼케이스</h5>
+                    <h5>2024.06 벤처기업인증</h5>
+                    <h5>2024.04 코나벤처파트너스 투자유치</h5>
+                    <h5>2024.03 카카오벤처스 투자유치</h5>
+                    <h5>2024.02 법인설립</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container">
+              <div class="col-lg-10 col-md-11 mx-auto">
+                <div class="detail-box">
+                  <div>
+                    <h2>회사 특징</h2>
+                    <br>
+                    <h3>서브컬처 전문 개발사</h3>
+                    <p>데스티니 차일드, 승리의 여신 니케 주요 개발진이 모였으며<br>
+                    팀 셋팅부터 론칭, 라이브 서비스까지 전 과정을 수행했다.</p>
+                    <br>
+                    <h3>글로벌 히트 경험</h3>
+                    <p>개발한 서브컬처 게임들이 국내 양대 마켓 1위를 포함,<br>
+                      모두 글로벌 히트한성공 경험이 있다.</p>
+                    <br>
+                    <h3>뛰어난 인재들</h3>                    
+                    <p>데스티니 차일드, 승리의 여신 니케 주요 개발진이 모였으며<br>
+                    팀 셋팅부터 론칭, 라이브 서비스까지 전 과정을 수행했다.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container">
+              <div class="col-lg-10 col-md-11 mx-auto">
+                <div class="detail-box">
+                  <div>
+                    <h2>목표와 비전</h2>
+                    <br>
+                    <h3>자랑스럽게 내세울 수 있는 게임을 만들자</h3>                    
+                    <p>스스로 만족할 수 없는 게임은 만들지 않는다. 언제 어디서 누구에게<br>
+                      내놔도 부끄럽지 않은, 유저가 평생 기억할만한 게임을 만든다</p>
+                    <br>
+                    <h3>튼튼한 기본 위에 새로움을 더하자</h3>                    
+                    <p>가장 기본적인 것이 가장 어려운 것임을 알고 게임을 즐길 때 불편하지<br>
+                      않도록, 바로 재미를 느낄 수 있도록 기본을 튼튼하게 갈고 닦는다.</p>
+                    <br>
+                    <h3>스스로 자랑스럽게 생각하자</h3>                    
+                    <p>우리는 특별한 게임을 만들기 위해 모였으며 누구도 따라올 수 없는<br>
+                      끝없는 열정과 의지를 갖고 있다.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+      </div>
+    </section>
+    <!-- end slider section -->
+  </div>
+
+
+  <!-- Us section -->
+
+  <section class="us_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          리드 멤버
+        </h2>
+      </div>
+      <div class="us_container ">
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="box">
+              <div class="img-box">
+                <img src="images/choi.png" alt="">
+              </div>
+              <div class="detail-box">
+                <p>CEO</p>
+                <h5>최주홍</h5>
+                <p>
+                  승리의 여신 니케<br>
+                  데스티니 차일드<br>
+                  쿠키런VR<br>
+                  마그나카르타 진홍의 성흔<br>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="box">
+              <div class="img-box">
+                <img src="images/seo.png" alt="">
+              </div>
+              <div class="detail-box">
+                <p>기획리드</p>
+                <h5>서정모</h5>
+                <p>
+                  승리의 여신 니케<br>
+                  데스티니 차일드<br>
+                  아이온2<br>
+                  G2<br>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="box">
+              <div class="img-box">
+                <img src="images/yun.png" alt="">
+              </div>
+              <div class="detail-box">
+                <p>CTO</p>
+                <h5>윤대영</h5>
+                <p>
+                  승리의 여신 니케<br>
+                  프렌즈 팝<br>
+                  리니지2<br>
+                  실크로드 온라인<br>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="box">
+              <div class="img-box">
+                <img src="images/cha.png" alt="">
+              </div>
+              <div class="detail-box">
+                <p>AD</p>
+                <h5>차지원</h5>
+                <p>
+                  드래곤 엠파이어<br>
+                  문명<br>
+                  아이온<br>
+                  리니지2<br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end us section -->
+
+
+  <!-- prj_terrarium -->
+  <section class="prj_terrarium_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          프로젝트 테라리움
+        </h2>
+      </div>
+      <div class="prj_terrarium_container "></div>
+      <div class="row">
+        <div class="col-md-12 mx-auto">
+          <div class="detail-box">
+            <div class="video-box">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/4w0iTNPyxqA?si=wKb2TRScPv99QfiN" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p>
+              서브컬처 메카닉 슈팅<br>
+              모바일, PC, 콘솔 크로스 플랫폼<br>
+              15세 이용가<br>
+              글로벌 서비스<br>
+              2027년 1월 출시 예정
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end prj_terrarium section -->
+
+  <!-- news section -->
+  <section class="news_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          NEWS
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <a href="https://thisisgame.com/webzine/nboard/225/?n=197487" target="_blank">
+                <img src="https://file.thisisgame.com/upload/nboard/news/2024/10/02/20241002172954_2022w.jpg" alt="">
+              </a>
+            </div>
+            <div class="name">
+              <p>프로젝트 테라리움: 새로운 게임의 출발</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <a href="https://m.inven.co.kr/webzine/wznews.php?iskin=to&hashtag=%EC%A7%80%ED%94%BC%EC%9C%A0%EC%97%94&idx=299730" target="_blank">
+                <img src="https://static.inven.co.kr/column/2024/10/02/news/i1501928325.jpg" alt="">
+              </a>
+            </div>
+            <div class="name">
+              <p>지피유엔의 첫 번째 서브컬처 게임 프로젝트, '테라리움'</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <a href="https://www.etnews.com/20241003000038" target="_blank">
+                <img src="https://img.etnews.com/news/article/2024/10/03/news-p.v1.20241003.584c2023cf254ab599362d8916b4d892_P1.jpg" alt="">
+              </a>
+            </div>
+            <div class="name">
+              <p>시프트업·엔씨 출신 모인 지피유엔, 서브컬처 메카닉 슈팅 '테라리움' 공개</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <a href="https://www.thisisgame.com/webzine/news/nboard/5/?n=189933?n" target="_blank">
+                <img src="https://file.thisisgame.com/upload/nboard/news/2024/06/07/20240607151011_9301w.jpg" alt="">
+              </a>
+            </div>
+            <div class="name">
+              <p>'테라리움' 이 지옥같은 행성 배경의 메카닉+미소녀 서브컬처 게임</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <a href="https://www.dailian.co.kr/news/view/1370142/?sc=Naver" target="_blank">
+                <img src="https://cdnimage.dailian.co.kr/news/202406/news_1718004315_1370142_m_1.jpeg" alt="[인터뷰] '니케' 개발진의 홀로서기 '서브컬처 슈팅 장르에 새로움 더하겠다'">
+              </a>
+            </div>
+            <div class="name">
+              <p>[인터뷰] '니케' 개발진의 홀로서기 "서브컬처 슈팅 장르에 새로움 더하겠다"</p>
+            </div>
+          </div>          
+        </div>
+
+        <div class="col-lg-4 col-md-6 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <a href="https://www.inven.co.kr/webzine/news/?news=295409" target="_blank">
+                <img src="https://static.inven.co.kr/column/2024/05/09/news/i1704073350.png" alt="서브컬처 게임 개발사 '지피유엔' 17억 원 투자 유치">
+              </a>
+            </div>
+            <div class="name">
+              <p>서브컬처 게임 개발사 '지피유엔' 17억 원 투자 유치</p>
+            </div>
+          </div>
+        </div>
+
+
+        
+      </div>
+    </div>
+  </section>
+  <!-- end news section -->
+
+  <!-- contact section -->
+  <section class="contact_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          CONTACT
+        </h2>
+      </div>
+      <div class="contact_container "></div>
+      <div class="row">
+        <div class="col-md-12 mx-auto">
+          <div class="detail-box">
+            <h5>사업 문의 및 투자</h5>
+            <p>ir@gpun.co.kr</p>
+            <br>
+            <h5>오시는 길</h5>
+            <p>주소 서울시 강남구 도산대로 145, 12층 1207호</p>
+            <div class="map-container">
+              <iframe class="rounded-map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6329.103674582756!2d127.024396!3d37.51848700000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca333b3def0bb%3A0x5de434ee96bf5a53!2z7Yyo7Iqk7Yq47YyM7J2067iMIOyLoOyCrOygkA!5e0!3m2!1sko!2skr!4v1712802595802!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end contact section -->
+
+  <!-- hiring section -->
+  <section class="hiring_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          WE ARE HIRING
+        </h2>
+      </div>
+      <div class="hiring_container "></div>
+      <div class="row">
+        <div class="col-md-12 mx-auto">
+          <div class="detail-box">
+            <h3>함께 하실 개발자를 모십니다!</h3>
+            <h4>Developers & Creators are recruiting now</h4>
+            <h5>
+              기획<br>
+              시나리오<br>
+              클라이언트<br>
+              서버<br>
+              원화<br>
+              애니메이션<br>
+              모델러<br>
+              UI<br>
+              이펙트<br>
+              TA<br>
+            </h5>
+            <p>recruit@gpun.co.kr</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end hiring section -->
+
+  <!-- footer section -->
+  <footer class="container-fluid footer_section">
+    <p>
+      &copy; 2024 GPUN. All rights reserved.
+    </p>
+  </footer>
+  <!-- footer section -->
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+
+</body>
+
+</html>
