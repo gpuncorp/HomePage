@@ -1570,7 +1570,8 @@ body.is-lightbox-open {
     grid-template-columns: 1fr;
   }
 
-  #studio.content-grid {
+  #studio.content-grid,
+  #expertise.content-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1698,6 +1699,13 @@ body.is-lightbox-open {
     line-height: 1.08;
     word-break: break-all;
     line-break: anywhere;
+  }
+
+  #expertise h2 {
+    max-width: none;
+    word-break: keep-all;
+    overflow-wrap: normal;
+    line-break: auto;
   }
 
   h2,
