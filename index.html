@@ -1,7 +1,827 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=https://www.gpun.co.kr">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GPUN | TERRARIUM Hero Prototype</title>
+  <meta name="description" content="GPUN homepage hero prototype using TERRARIUM title video.">
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f4fbff;
+      --muted: rgba(244, 251, 255, 0.68);
+      --line: rgba(244, 251, 255, 0.22);
+      --cyan: #74f7ff;
+      --dark: #05090c;
+      --header-h: 76px;
+      --mega-menu-panel-h: 250px;
+      --page-content-max: 1180px;
+      --page-edge: max(clamp(20px, 4vw, 64px), calc((100% - var(--page-content-max)) / 2));
+      --header-content-max: var(--page-content-max);
+      --header-edge: var(--page-edge);
+      --nav-column-w: clamp(70px, 4vw, 88px);
+      --nav-gap: clamp(28px, 2.4vw, 44px);
+      --media-radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Pretendard", "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--dark);
+      color: var(--ink);
+      letter-spacing: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 20;
+      height: var(--header-h);
+      display: block;
+      padding: 0;
+      background: linear-gradient(180deg, rgba(3, 7, 10, 0.76), rgba(3, 7, 10, 0));
+      transition: background 180ms ease, color 180ms ease;
+    }
+
+    .site-header::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: var(--header-h);
+      height: 1px;
+      background: rgba(17, 20, 24, 0.08);
+      opacity: 0;
+      transition: opacity 160ms ease;
+    }
+
+    .brand {
+      position: absolute;
+      left: var(--header-edge);
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .brand-logo {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      filter: invert(1);
+      display: block;
+      transition: filter 180ms ease;
+    }
+
+    .brand-tagline {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: color 180ms ease;
+    }
+
+    .nav {
+      position: absolute;
+      right: var(--header-edge);
+      top: 50%;
+      transform: translateY(-50%);
+      display: grid;
+      grid-template-columns: repeat(6, var(--nav-column-w));
+      align-items: center;
+      justify-content: end;
+      justify-items: center;
+      gap: var(--nav-gap);
+      color: rgba(244, 251, 255, 0.78);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .nav a {
+      position: relative;
+      white-space: nowrap;
+      transition: color 160ms ease;
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -26px;
+      height: 3px;
+      background: #3fae58;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 180ms ease;
+    }
+
+    .nav a:hover {
+      color: var(--ink);
+    }
+
+    .nav a:hover::after,
+    .nav a:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    .nav a:hover::after,
+    .nav a:focus-visible::after {
+      background: #f28c28;
+    }
+
+    .mega-menu {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: var(--header-h);
+      background: #fff;
+      color: #172029;
+      border-top: 1px solid rgba(17, 20, 24, 0.08);
+      box-shadow: 0 28px 54px rgba(0, 0, 0, 0.16);
+      transform: translateY(-18px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 180ms ease, visibility 0ms linear 220ms;
+    }
+
+    .mega-menu-inner {
+      width: fit-content;
+      max-width: calc(100% - (var(--header-edge) * 2));
+      margin: 0 var(--header-edge) 0 auto;
+      min-height: var(--mega-menu-panel-h);
+      padding: 32px 0 38px;
+      display: grid;
+      grid-template-columns: repeat(6, var(--nav-column-w));
+      gap: var(--nav-gap);
+    }
+
+    .mega-column {
+      display: grid;
+      align-content: start;
+      justify-content: center;
+      justify-items: center;
+      gap: 14px;
+      font-size: 14px;
+      font-weight: 650;
+      line-height: 1.25;
+      text-align: center;
+    }
+
+    .mega-column a {
+      position: relative;
+      display: inline-block;
+      color: #3a424a;
+      white-space: nowrap;
+      transition: color 150ms ease;
+    }
+
+    .mega-column a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -7px;
+      height: 2px;
+      background: #f28c28;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 170ms ease;
+    }
+
+    .mega-column a:hover,
+    .mega-column a:focus-visible {
+      color: #0b8f9d;
+    }
+
+    .mega-column a:hover::after,
+    .mega-column a:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    .site-header:hover,
+    .site-header:focus-within {
+      background: #fff;
+      color: #111418;
+    }
+
+    .site-header:hover::after,
+    .site-header:focus-within::after {
+      opacity: 1;
+    }
+
+    .site-header:hover .brand-logo,
+    .site-header:focus-within .brand-logo {
+      filter: none;
+    }
+
+    .site-header:hover .brand-tagline,
+    .site-header:focus-within .brand-tagline {
+      color: #5b646c;
+    }
+
+    .site-header:hover .nav,
+    .site-header:focus-within .nav {
+      color: #111418;
+    }
+
+    .site-header:hover .nav a:hover,
+    .site-header:focus-within .nav a:focus-visible {
+      color: #0b8f9d;
+    }
+
+    .site-header:hover .mega-menu,
+    .site-header:focus-within .mega-menu {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transition-delay: 0ms;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: calc(var(--header-h) + 36px) var(--page-edge) clamp(46px, 7vh, 80px);
+      isolation: isolate;
+      background: #02070a;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -3;
+      filter: saturate(1.05) contrast(1.05);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.86) 0%, rgba(0, 0, 0, 0.42) 38%, rgba(0, 0, 0, 0.12) 72%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.48) 0%, rgba(0, 0, 0, 0.04) 45%, rgba(0, 0, 0, 0.78) 100%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+      background-size: 100% 4px;
+      opacity: 0.18;
+      mix-blend-mode: soft-light;
+    }
+
+    .hero-copy {
+      width: min(620px, 100%);
+      transform: translateY(12px);
+      opacity: 0;
+      animation: heroIn 900ms cubic-bezier(0.2, 0.8, 0.2, 1) 240ms forwards;
+    }
+
+    .kicker {
+      margin: 0 0 18px;
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(46px, 9vw, 112px);
+      line-height: 0.88;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .hero-subtitle {
+      margin: 26px 0 0;
+      max-width: 600px;
+      color: rgba(244, 251, 255, 0.84);
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.55;
+      font-weight: 650;
+      word-break: keep-all;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      border: 1px solid var(--line);
+      font-size: 13px;
+      font-weight: 800;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .button.primary {
+      background: rgba(116, 247, 255, 0.16);
+      border-color: rgba(116, 247, 255, 0.56);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(244, 251, 255, 0.68);
+      background: rgba(244, 251, 255, 0.11);
+    }
+
+    .hero-meta {
+      position: absolute;
+      right: var(--page-edge);
+      bottom: clamp(46px, 7vh, 80px);
+      display: grid;
+      gap: 10px;
+      width: min(300px, 26vw);
+      color: rgba(244, 251, 255, 0.68);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(244, 251, 255, 0.2);
+    }
+
+    .main {
+      min-height: 100svh;
+      padding: clamp(72px, 10vw, 140px) var(--page-edge);
+      background: linear-gradient(180deg, #05090c 0%, #0a1116 100%);
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: clamp(40px, 8vw, 120px);
+      align-items: start;
+      max-width: var(--page-content-max);
+      margin: 0 auto;
+    }
+
+    .section-label {
+      margin: 0 0 18px;
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 72px);
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .section-copy {
+      margin: 22px 0 0;
+      color: rgba(244, 251, 255, 0.76);
+      font-size: 18px;
+      line-height: 1.8;
+      word-break: keep-all;
+    }
+
+    .spec-list {
+      display: grid;
+      gap: 0;
+      margin: 8px 0 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .spec-list div {
+      display: grid;
+      grid-template-columns: 132px 1fr;
+      gap: 22px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .spec-list dt {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .spec-list dd {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .gallery {
+      padding: clamp(76px, 10vw, 140px) clamp(10px, 2vw, 28px) clamp(84px, 12vw, 160px);
+      background:
+        radial-gradient(circle at 80% 0%, rgba(116, 247, 255, 0.08), transparent 34%),
+        linear-gradient(180deg, #0a1116 0%, #05090c 100%);
+      overflow: hidden;
+    }
+
+    .gallery-head {
+      max-width: var(--page-content-max);
+      margin: 0 auto clamp(30px, 5vw, 58px);
+      padding: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.55fr);
+      gap: clamp(28px, 7vw, 96px);
+      align-items: end;
+    }
+
+    .gallery-head h2 {
+      max-width: 780px;
+    }
+
+    .gallery-head p:last-child {
+      margin: 0;
+      color: rgba(244, 251, 255, 0.7);
+      font-size: 16px;
+      line-height: 1.75;
+      word-break: keep-all;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-auto-rows: clamp(142px, 16vw, 248px);
+      gap: 8px;
+      max-width: 1760px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      min-height: 0;
+      border-radius: var(--media-radius);
+      background: #101820;
+      isolation: isolate;
+    }
+
+    .gallery-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.62) 100%);
+      opacity: 0.86;
+      transition: opacity 220ms ease;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transform: scale(1.01);
+      transition: transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1), filter 240ms ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.045);
+      filter: saturate(1.08) contrast(1.04);
+    }
+
+    .gallery-item:hover::after {
+      opacity: 0.68;
+    }
+
+    .gallery-item figcaption {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 16px;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      color: rgba(244, 251, 255, 0.9);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .gallery-item figcaption span:last-child {
+      color: rgba(244, 251, 255, 0.56);
+    }
+
+    .gallery-item.feature {
+      grid-column: span 3;
+      grid-row: span 2;
+    }
+
+    .gallery-item.wide {
+      grid-column: span 3;
+    }
+
+    .gallery-item.medium {
+      grid-column: span 2;
+    }
+
+    @keyframes heroIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 860px) {
+      :root {
+        --header-h: 64px;
+      }
+
+      .site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-inline: 18px;
+      }
+
+      .brand,
+      .nav {
+        position: static;
+        transform: none;
+      }
+
+      .brand-tagline,
+      .mega-menu,
+      .hero-meta {
+        display: none;
+      }
+
+      .nav {
+        display: flex;
+        gap: 24px;
+        font-size: 12px;
+        overflow-x: auto;
+        justify-content: flex-start;
+      }
+
+      .hero {
+        align-items: flex-end;
+        padding: calc(var(--header-h) + 24px) 18px 44px;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.34) 42%, rgba(0, 0, 0, 0.88) 100%),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.18));
+      }
+
+      .hero-subtitle {
+        font-size: 17px;
+      }
+
+      .button {
+        flex: 1 1 150px;
+      }
+
+      .main {
+        padding-inline: 18px;
+      }
+
+      .section-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        padding-inline: 8px;
+      }
+
+      .gallery-head {
+        grid-template-columns: 1fr;
+        padding-inline: 10px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        gap: 8px;
+      }
+
+      .gallery-item,
+      .gallery-item.feature,
+      .gallery-item.wide,
+      .gallery-item.medium {
+        grid-column: auto;
+        grid-row: auto;
+        aspect-ratio: 16 / 9;
+      }
+
+      .spec-list div {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+    }
+  </style>
 </head>
+<body>
+  <header class="site-header" aria-label="Primary navigation">
+    <a class="brand" href="index.html">
+      <img class="brand-logo" src="assets/ci/gpun_ci_alpha_1024.png" alt="GPUN">
+      <span class="brand-tagline">Game Pride Is Unlimited</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="about.html">ABOUT</a>
+      <a href="terrarium.html">TERRARIUM</a>
+      <a href="project-move.html">PROJECT MOVE</a>
+      <a href="gallery.html">GALLERY</a>
+      <a href="media.html">MEDIA</a>
+      <a href="careers.html">CAREERS</a>
+    </nav>
+    <div class="mega-menu" aria-label="Sub navigation">
+      <div class="mega-menu-inner">
+        <div class="mega-column">
+          <a href="about.html#studio">Studio</a>
+          <a href="about.html#leadership">Leadership</a>
+          <a href="about.html#history">History</a>
+          <a href="about.html#philosophy">Philosophy</a>
+          <a href="about.html#expertise">Expertise</a>
+          <a href="about.html#culture">Culture</a>
+        </div>
+        <div class="mega-column">
+          <a href="terrarium.html#overview">Overview</a>
+          <a href="terrarium.html#characters">Characters</a>
+          <a href="terrarium.html#combat">Combat</a>
+          <a href="terrarium.html#base">Base</a>
+          <a href="terrarium.html#field">Field</a>
+          <a href="terrarium.html#story">Story</a>
+        </div>
+        <div class="mega-column">
+          <a href="project-move.html#overview">Overview</a>
+          <a href="project-move.html#visual-direction">Visual Direction</a>
+        </div>
+        <div class="mega-column">
+          <a href="gallery.html#terrarium">TERRARIUM</a>
+          <a href="gallery.html#project-move">PROJECT MOVE</a>
+          <a href="gallery.html#gpun">GPUN</a>
+        </div>
+        <div class="mega-column">
+          <a href="media.html#press">Press</a>
+          <a href="media.html#trailers">Trailers</a>
+        </div>
+        <div class="mega-column">
+          <a href="careers.html#join-us">Join Us</a>
+          <a href="careers.html#recruit">Recruit</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" id="top">
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="assets/terrarium_hero_poster_no_logo.jpg"
+      aria-label="TERRARIUM title cinematic">
+      <source src="assets/terrarium_hero_loop_mobile_720x1280_no_logo.mp4" type="video/mp4" media="(max-width: 720px)">
+      <source src="assets/terrarium_hero_loop_720p_no_logo.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-copy">
+      <p class="kicker">Subculture Mechanic Shooting</p>
+      <h1>TERRARIUM</h1>
+      <p class="hero-subtitle">
+        GPUN은 서브컬처의 감성과 메카닉 액션의 밀도를 결합해 전 세계 유저가 오래 기억할 게임을 만듭니다.
+      </p>
+      <div class="hero-actions">
+        <a class="button primary" href="terrarium.html">프로젝트 보기</a>
+        <a class="button" href="careers.html#recruit">채용 포지션 보기</a>
+      </div>
+    </div>
+
+    <aside class="hero-meta" aria-label="Project summary">
+      <div class="meta-row">
+        <span>Engine</span>
+        <strong>Unity3D</strong>
+      </div>
+      <div class="meta-row">
+        <span>Platform</span>
+        <strong>Mobile / PC / Console</strong>
+      </div>
+      <div class="meta-row">
+        <span>Target</span>
+        <strong>Global One Build</strong>
+      </div>
+    </aside>
+  </section>
+
+  <section class="gallery" id="gallery" aria-label="TERRARIUM gallery">
+    <div class="gallery-head">
+      <div>
+        <p class="section-label">Gallery</p>
+        <h2>Characters, machines, and the world beneath the surface.</h2>
+      </div>
+      <p>
+        폐허가 된 지상과 지하 기지, 메카닉 병기와 파일럿의 순간을 하나의 시네마틱 월드로 보여줍니다.
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+      <figure class="gallery-item feature">
+        <img src="assets/gallery/gallery_01_ruins_character.webp" alt="Pilot resting with rifle in a ruined city" loading="lazy">
+        <figcaption><span>Pilot</span><span>Ruins</span></figcaption>
+      </figure>
+      <figure class="gallery-item feature">
+        <img src="assets/gallery/gallery_02_hangar_colossus.webp" alt="Researcher facing a covered giant structure in an underground hangar" loading="lazy">
+        <figcaption><span>Discovery</span><span>Hangar</span></figcaption>
+      </figure>
+      <figure class="gallery-item wide">
+        <img src="assets/gallery/gallery_03_lab_white_character.webp" alt="White-haired character in a lab room with birds on a display wall" loading="lazy">
+        <figcaption><span>NAU</span><span>Lab</span></figcaption>
+      </figure>
+      <figure class="gallery-item medium">
+        <img src="assets/gallery/gallery_04_rain_character.webp" alt="Armored pilot crouching in the rain near a small black cat" loading="lazy">
+        <figcaption><span>Rain</span><span>Surface</span></figcaption>
+      </figure>
+      <figure class="gallery-item medium">
+        <img src="assets/gallery/gallery_05_camp_character.webp" alt="Orange-haired pilot sitting near a fire in a broken room" loading="lazy">
+        <figcaption><span>Camp</span><span>Shelter</span></figcaption>
+      </figure>
+      <figure class="gallery-item medium">
+        <img src="assets/gallery/gallery_06_underground_sector.webp" alt="Industrial underground sector with covered machinery" loading="lazy">
+        <figcaption><span>Sector</span><span>B-14</span></figcaption>
+      </figure>
+      <figure class="gallery-item wide">
+        <img src="assets/gallery/gallery_07_fortress_wall.webp" alt="Massive futuristic fortress wall under storm clouds" loading="lazy">
+        <figcaption><span>Defense Line</span><span>G-07</span></figcaption>
+      </figure>
+      <figure class="gallery-item medium">
+        <img src="assets/gallery/gallery_08_airship_ruins.webp" alt="Aircraft hovering over ruined towers under broken sky" loading="lazy">
+        <figcaption><span>Dispatch</span><span>City</span></figcaption>
+      </figure>
+      <figure class="gallery-item medium">
+        <img src="assets/gallery/gallery_09_siege_artillery.webp" alt="Large artillery vehicle in a dusty ruined battlefield" loading="lazy">
+        <figcaption><span>Siege</span><span>Artillery</span></figcaption>
+      </figure>
+      <figure class="gallery-item medium">
+        <img src="assets/gallery/gallery_10_launcher_hangar.webp" alt="Large rocket-like machine suspended in an industrial hangar" loading="lazy">
+        <figcaption><span>Machine</span><span>Hangar</span></figcaption>
+      </figure>
+      <figure class="gallery-item medium">
+        <img src="assets/gallery/gallery_11_construction_area.webp" alt="Dim underground construction area with lit pillars" loading="lazy">
+        <figcaption><span>Construction</span><span>B3</span></figcaption>
+      </figure>
+      <figure class="gallery-item wide">
+        <img src="assets/gallery/gallery_12_reactor_pool.webp" alt="Blue glowing reactor pool in an underground facility" loading="lazy">
+        <figcaption><span>Reactor Pool</span><span>A2-04</span></figcaption>
+      </figure>
+      <figure class="gallery-item medium">
+        <img src="assets/gallery/gallery_13_commander.webp" alt="Commander in uniform using a handheld device near a worn wall" loading="lazy">
+        <figcaption><span>Command</span><span>Archive</span></figcaption>
+      </figure>
+      <figure class="gallery-item medium">
+        <img src="assets/gallery/gallery_14_statue_sanctum.webp" alt="Roped statue inside a circular sanctum" loading="lazy">
+        <figcaption><span>Sanctum</span><span>Relic</span></figcaption>
+      </figure>
+    </div>
+  </section>
+</body>
 </html>

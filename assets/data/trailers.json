@@ -1,0 +1,49 @@
+{
+  "generatedAt": "2026-05-26T00:00:00+09:00",
+  "source": {
+    "type": "seed",
+    "notionDatabaseUrl": "https://www.notion.so/604561fe48aa46dfab15dacf888ff255",
+    "notionDataSourceId": "820bc2c7-504a-4de0-a8e4-26bc01fd3183"
+  },
+  "items": [
+    {
+      "title": "2nd 쇼케이스 PV",
+      "summary": "TERRARIUM의 두 번째 쇼케이스 프로모션 영상입니다.",
+      "source": "YOUTUBE",
+      "category": "PV",
+      "date": "",
+      "url": "https://youtu.be/DQk-1EdiAMw?si=c3bdwsZPY6ywxT9G",
+      "videoId": "DQk-1EdiAMw",
+      "thumbnail": "https://i.ytimg.com/vi/DQk-1EdiAMw/hqdefault.jpg",
+      "thumbnailAlt": "2nd 쇼케이스 PV",
+      "visible": true,
+      "order": 1
+    },
+    {
+      "title": "2nd 쇼케이스 PlayMovie",
+      "summary": "TERRARIUM의 두 번째 쇼케이스 플레이 영상입니다.",
+      "source": "YOUTUBE",
+      "category": "PLAYMOVIE",
+      "date": "",
+      "url": "https://youtu.be/gmndcsmqk2M?si=0JTuRMBG1419DEIW",
+      "videoId": "gmndcsmqk2M",
+      "thumbnail": "https://i.ytimg.com/vi/gmndcsmqk2M/hqdefault.jpg",
+      "thumbnailAlt": "2nd 쇼케이스 PlayMovie",
+      "visible": true,
+      "order": 2
+    },
+    {
+      "title": "1st 쇼케이스 PV",
+      "summary": "TERRARIUM의 첫 번째 쇼케이스 프로모션 영상입니다.",
+      "source": "YOUTUBE",
+      "category": "PV",
+      "date": "",
+      "url": "https://youtu.be/4w0iTNPyxqA?si=kemOO2s9x1VCwJ-p",
+      "videoId": "4w0iTNPyxqA",
+      "thumbnail": "https://i.ytimg.com/vi/4w0iTNPyxqA/hqdefault.jpg",
+      "thumbnailAlt": "1st 쇼케이스 PV",
+      "visible": true,
+      "order": 3
+    }
+  ]
+}
