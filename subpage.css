@@ -12,7 +12,7 @@
   --header-edge: max(20px, calc((100% - var(--header-content-max)) / 2));
   --nav-column-w: clamp(70px, 4vw, 88px);
   --nav-gap: clamp(28px, 2.4vw, 44px);
-  --media-radius: 18px;
+  --media-radius: 8px;
 }
 
 * {
@@ -1376,7 +1376,6 @@ h2 span {
   border: 0;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  border-radius: var(--media-radius);
   background: #111820;
   cursor: pointer;
 }
@@ -1448,7 +1447,6 @@ body.is-lightbox-open {
   display: block;
   width: 100%;
   max-height: 78vh;
-  border-radius: var(--media-radius);
   object-fit: contain;
 }
 
