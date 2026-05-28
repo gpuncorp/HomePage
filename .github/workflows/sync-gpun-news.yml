@@ -47,3 +47,4 @@ jobs:
           file_pattern: |
             docs/assets/data/news.json
             docs/assets/data/trailers.json
+            docs/assets/media/notion-thumbnails
