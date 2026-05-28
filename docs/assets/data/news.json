@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-28T02:41:22.916Z",
+  "generatedAt": "2026-05-28T03:07:55.293Z",
   "source": {
     "type": "notion"
   },
@@ -11,7 +11,7 @@
       "category": "SHOWCASE",
       "date": "",
       "url": "https://www.inven.co.kr/webzine/news/?news=307730",
-      "thumbnail": "assets/gallery/gallery_02_hangar_colossus.webp",
+      "thumbnail": "assets/media/notion-thumbnails/news-3681f020-6951-814e-9d1b-f17fc93f5ff7.jpg",
       "thumbnailAlt": "지피유엔, 신작 '테라리움' 7월 30일 두 번째 쇼케이스 개최",
       "visible": true,
       "order": 1
@@ -23,7 +23,7 @@
       "category": "SHOWCASE",
       "date": "",
       "url": "https://bbs.ruliweb.com/news/read/213589",
-      "thumbnail": "assets/gallery/gallery_01_ruins_character.webp",
+      "thumbnail": "assets/media/notion-thumbnails/news-3681f020-6951-814b-a5cc-e300b1731822.jpg",
       "thumbnailAlt": "지피유엔 미소녀 메카닉 슈팅 테라리움 세컨드 쇼케이스",
       "visible": true,
       "order": 2
@@ -35,7 +35,7 @@
       "category": "REPORT",
       "date": "",
       "url": "https://www.thisisgame.com/articles/400692",
-      "thumbnail": "assets/gallery/gallery_07_fortress_wall.webp",
+      "thumbnail": "assets/media/notion-thumbnails/news-3681f020-6951-8168-8608-d6f1a3138130.jpg",
       "thumbnailAlt": "27년 상반기 출시, 국산 미소녀 슈팅게임 '테라리움'의 중간 발표회",
       "visible": true,
       "order": 3
@@ -47,7 +47,7 @@
       "category": "SHOWCASE",
       "date": "",
       "url": "https://www.inven.co.kr/webzine/news/?news=307922",
-      "thumbnail": "assets/gallery/gallery_08_airship_ruins.webp",
+      "thumbnail": "assets/media/notion-thumbnails/news-3681f020-6951-8118-aa08-f877a4a27c48.jpg",
       "thumbnailAlt": "서브컬처 메카닉 슈팅 '테라리움', 쇼케이스 2차 공개",
       "visible": true,
       "order": 4
@@ -59,7 +59,7 @@
       "category": "REPORT",
       "date": "",
       "url": "https://www.gamevu.co.kr/news/articleView.html?idxno=50492",
-      "thumbnail": "assets/gallery/gallery_12_reactor_pool.webp",
+      "thumbnail": "assets/media/notion-thumbnails/news-3681f020-6951-81d9-9f85-dcbfa230252c.jpg",
       "thumbnailAlt": "[현장] 지피유엔 '테라리움', 2027년 글로벌 도전 본격화",
       "visible": true,
       "order": 5
@@ -71,7 +71,7 @@
       "category": "INTERVIEW",
       "date": "",
       "url": "https://zdnet.co.kr/view/?no=20250730161920",
-      "thumbnail": "assets/gallery/gallery_10_launcher_hangar.webp",
+      "thumbnail": "assets/media/notion-thumbnails/news-3681f020-6951-810b-99ca-f921c03d1b8d.jpg",
       "thumbnailAlt": "최주홍 지피유엔 대표 \"'테라리움' 본격 방향성 잡아\"",
       "visible": true,
       "order": 6
@@ -83,7 +83,7 @@
       "category": "PRESS",
       "date": "",
       "url": "https://www.dailian.co.kr/news/view/1529902/?sc=Naver",
-      "thumbnail": "assets/gallery/gallery_13_commander.webp",
+      "thumbnail": "assets/media/notion-thumbnails/news-3681f020-6951-8162-9a4b-e439228694ec.jpg",
       "thumbnailAlt": "엔씨·시프트업 OB 의기투합…서브컬처 슈팅 '테라리움'",
       "visible": true,
       "order": 7
@@ -95,7 +95,7 @@
       "category": "ROADMAP",
       "date": "",
       "url": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=581561",
-      "thumbnail": "assets/gallery/gallery_06_underground_sector.webp",
+      "thumbnail": "assets/media/notion-thumbnails/news-3681f020-6951-81e2-a0cd-dafae88f17e2.jpg",
       "thumbnailAlt": "지피유엔 \"3D 슈팅 게임 '테라리움' 2027년 글로벌 출시 목표\"",
       "visible": true,
       "order": 8
@@ -107,7 +107,7 @@
       "category": "SHOWCASE",
       "date": "",
       "url": "https://m.inven.co.kr/webzine/wznews.php?iskin=to&hashtag=%EC%A7%80%ED%94%BC%EC%9C%A0%EC%97%94&idx=299730",
-      "thumbnail": "assets/gallery/gallery_03_lab_white_character.webp",
+      "thumbnail": "assets/media/notion-thumbnails/news-3681f020-6951-81ba-b47b-d5d3d2cb095e.jpg",
       "thumbnailAlt": "지피유엔, 서브컬처 슈팅 신작 '테라리움' 첫 공개",
       "visible": true,
       "order": 9
@@ -119,7 +119,7 @@
       "category": "PRESS",
       "date": "",
       "url": "https://it.chosun.com/news/articleView.html?idxno=2023092124449",
-      "thumbnail": "assets/gallery/gallery_09_siege_artillery.webp",
+      "thumbnail": "assets/media/notion-thumbnails/news-3681f020-6951-81fe-8edb-df5dd1d732f4.jpg",
       "thumbnailAlt": "지피유엔, 서브컬처 슈팅 게임 '테라리움' 공개",
       "visible": true,
       "order": 10
@@ -131,7 +131,7 @@
       "category": "INTERVIEW",
       "date": "",
       "url": "https://www.dailian.co.kr/news/view/1370142/?sc=Naver",
-      "thumbnail": "assets/gallery/gallery_05_camp_character.webp",
+      "thumbnail": "assets/media/notion-thumbnails/news-3681f020-6951-81e4-9bc0-df7c4280b187.jpg",
       "thumbnailAlt": "[인터뷰] '니케' 개발진의 홀로서기",
       "visible": true,
       "order": 11
@@ -143,7 +143,7 @@
       "category": "INVESTMENT",
       "date": "",
       "url": "https://www.inven.co.kr/webzine/news/?news=295409",
-      "thumbnail": "assets/gallery/gallery_14_statue_sanctum.webp",
+      "thumbnail": "assets/media/notion-thumbnails/news-3681f020-6951-81ce-a509-d312c66b2068.png",
       "thumbnailAlt": "서브컬처 게임 개발사 '지피유엔' 17억 원 투자 유치",
       "visible": true,
       "order": 12
@@ -155,7 +155,7 @@
       "category": "INVESTMENT",
       "date": "",
       "url": "https://www.newswhoplus.com/news/articleView.html?idxno=20474",
-      "thumbnail": "assets/gallery/gallery_11_construction_area.webp",
+      "thumbnail": "assets/media/notion-thumbnails/news-3681f020-6951-8176-88ee-efe42e1fbe9a.jpg",
       "thumbnailAlt": "[단독] 웹젠, 국내 게임 개발사 'GPUN' 재무적 투자 진행",
       "visible": true,
       "order": 13
@@ -167,7 +167,7 @@
       "category": "INVESTMENT",
       "date": "",
       "url": "https://bbs.ruliweb.com/news/read/207043",
-      "thumbnail": "assets/gallery/gallery_04_rain_character.webp",
+      "thumbnail": "assets/media/notion-thumbnails/news-3681f020-6951-8149-b3df-cbac9296b450.png",
       "thumbnailAlt": "웹젠 게임 개발사 GPUN에 초기 투자 참여",
       "visible": true,
       "order": 14
