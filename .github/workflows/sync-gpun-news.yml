@@ -25,12 +25,14 @@ jobs:
         env:
           NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
           NOTION_NEWS_DATA_SOURCE_ID: ${{ secrets.NOTION_NEWS_DATA_SOURCE_ID }}
+          NEWS_OUTPUT_PATH: docs/assets/data/news.json
         run: node scripts/sync-notion-news.mjs
 
       - name: Sync Notion trailers
         env:
           NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
           NOTION_TRAILERS_DATA_SOURCE_ID: ${{ secrets.NOTION_TRAILERS_DATA_SOURCE_ID }}
+          TRAILERS_OUTPUT_PATH: docs/assets/data/trailers.json
         run: |
           if [ -z "$NOTION_TRAILERS_DATA_SOURCE_ID" ]; then
             echo "Skipping trailer sync; NOTION_TRAILERS_DATA_SOURCE_ID is not configured."
@@ -43,5 +45,5 @@ jobs:
         with:
           commit_message: "Update GPUN media data"
           file_pattern: |
-            assets/data/news.json
-            assets/data/trailers.json
+            docs/assets/data/news.json
+            docs/assets/data/trailers.json

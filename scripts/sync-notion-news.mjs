@@ -3,7 +3,7 @@ import path from "node:path";
 
 const NOTION_VERSION = "2025-09-03";
 const DEFAULT_DATA_SOURCE_ID = "67816770-aa05-4f6f-bb71-407ba46d3c83";
-const DEFAULT_OUTPUT = "assets/data/news.json";
+const DEFAULT_OUTPUT = "docs/assets/data/news.json";
 
 const token = process.env.NOTION_API_KEY || process.env.NOTION_TOKEN;
 const dataSourceId = process.env.NOTION_NEWS_DATA_SOURCE_ID || DEFAULT_DATA_SOURCE_ID;
@@ -47,6 +47,9 @@ const thumbnail = (property) => {
   if (!file) return "";
   return file.external?.url || file.file?.url || "";
 };
+
+const isExpiringNotionFileUrl = (value) =>
+  value.includes("prod-files-secure") || value.includes("X-Amz-");
 
 const normalizeUrl = (value) => {
   try {
@@ -118,7 +121,7 @@ const toNewsItem = (page) => {
     category: select(properties.Category),
     date: date(properties.Date),
     url: articleUrl,
-    thumbnail: notionThumbnail || fallbackThumbnails[articleUrl] || "",
+    thumbnail: fallbackThumbnails[articleUrl] || (isExpiringNotionFileUrl(notionThumbnail) ? "" : notionThumbnail),
     thumbnailAlt: text(properties.Title),
     visible: checkbox(properties.Visible),
     order: number(properties.Order)
@@ -134,8 +137,7 @@ const items = rows
 const data = {
   generatedAt: new Date().toISOString(),
   source: {
-    type: "notion",
-    notionDataSourceId: dataSourceId
+    type: "notion"
   },
   items
 };

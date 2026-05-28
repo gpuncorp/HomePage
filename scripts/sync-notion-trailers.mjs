@@ -3,7 +3,7 @@ import path from "node:path";
 
 const NOTION_VERSION = "2025-09-03";
 const DEFAULT_DATA_SOURCE_ID = "820bc2c7-504a-4de0-a8e4-26bc01fd3183";
-const DEFAULT_OUTPUT = "assets/data/trailers.json";
+const DEFAULT_OUTPUT = "docs/assets/data/trailers.json";
 
 const token = process.env.NOTION_API_KEY || process.env.NOTION_TOKEN;
 const dataSourceId = process.env.NOTION_TRAILERS_DATA_SOURCE_ID || DEFAULT_DATA_SOURCE_ID;
@@ -135,8 +135,7 @@ const items = rows
 const data = {
   generatedAt: new Date().toISOString(),
   source: {
-    type: "notion",
-    notionDataSourceId: dataSourceId
+    type: "notion"
   },
   items
 };
