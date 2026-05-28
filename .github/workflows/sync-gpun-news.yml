@@ -44,10 +44,17 @@ jobs:
           node scripts/sync-notion-trailers.mjs
 
       - name: Commit updated media data
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Update GPUN media data"
-          file_pattern: |
-            docs/assets/data/news.json
-            docs/assets/data/trailers.json
-            docs/assets/media/notion-thumbnails
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p docs/assets/media/notion-thumbnails
+          git add docs/assets/data/news.json docs/assets/data/trailers.json docs/assets/media/notion-thumbnails
+
+          if git diff --cached --quiet; then
+            echo "No media changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Update GPUN media data"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
