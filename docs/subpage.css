@@ -730,6 +730,12 @@ h2 span {
   text-underline-offset: 4px;
 }
 
+.location-list a[href^="mailto:"] {
+  color: var(--cyan);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 #join-us.content-grid {
   row-gap: clamp(26px, 3vw, 42px);
 }
