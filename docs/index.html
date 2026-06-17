@@ -31,6 +31,9 @@
       --header-edge: var(--page-edge);
       --nav-column-w: clamp(70px, 4vw, 88px);
       --nav-gap: clamp(28px, 2.4vw, 44px);
+      --language-slot-w: 84px;
+      --flag-korea: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 24'%3E%3Crect width='36' height='24' rx='2' fill='%23fff'/%3E%3Cg transform='translate(18 12) rotate(-33)'%3E%3Cpath d='M0-6a6 6 0 0 1 0 12a3 3 0 0 1 0-6a3 3 0 0 0 0-6z' fill='%23cd2e3a'/%3E%3Cpath d='M0 6a6 6 0 0 1 0-12a3 3 0 0 1 0 6a3 3 0 0 0 0 6z' fill='%230047a0'/%3E%3C/g%3E%3Cg stroke='%23111418' stroke-width='1.2' stroke-linecap='round'%3E%3Cpath d='M5 5h6M5 7h6M5 9h6M25 15h6M25 17h6M25 19h6M25 7h6M5 15h6M5 19h6'/%3E%3Cpath d='M25 5h2.2M28.8 5H31M25 9h2.2M28.8 9H31M5 17h2.2M8.8 17H11'/%3E%3C/g%3E%3C/svg%3E");
+      --flag-english: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 24'%3E%3Crect width='36' height='24' rx='2' fill='%23b22234'/%3E%3Cg fill='%23fff'%3E%3Crect y='2' width='36' height='2'/%3E%3Crect y='6' width='36' height='2'/%3E%3Crect y='10' width='36' height='2'/%3E%3Crect y='14' width='36' height='2'/%3E%3Crect y='18' width='36' height='2'/%3E%3Crect y='22' width='36' height='2'/%3E%3C/g%3E%3Crect width='15.8' height='13' fill='%233c3b6e'/%3E%3Cg fill='%23fff'%3E%3Ccircle cx='2.1' cy='2' r='.55'/%3E%3Ccircle cx='5.1' cy='2' r='.55'/%3E%3Ccircle cx='8.1' cy='2' r='.55'/%3E%3Ccircle cx='11.1' cy='2' r='.55'/%3E%3Ccircle cx='14.1' cy='2' r='.55'/%3E%3Ccircle cx='3.6' cy='4' r='.55'/%3E%3Ccircle cx='6.6' cy='4' r='.55'/%3E%3Ccircle cx='9.6' cy='4' r='.55'/%3E%3Ccircle cx='12.6' cy='4' r='.55'/%3E%3Ccircle cx='2.1' cy='6' r='.55'/%3E%3Ccircle cx='5.1' cy='6' r='.55'/%3E%3Ccircle cx='8.1' cy='6' r='.55'/%3E%3Ccircle cx='11.1' cy='6' r='.55'/%3E%3Ccircle cx='14.1' cy='6' r='.55'/%3E%3Ccircle cx='3.6' cy='8' r='.55'/%3E%3Ccircle cx='6.6' cy='8' r='.55'/%3E%3Ccircle cx='9.6' cy='8' r='.55'/%3E%3Ccircle cx='12.6' cy='8' r='.55'/%3E%3Ccircle cx='2.1' cy='10' r='.55'/%3E%3Ccircle cx='5.1' cy='10' r='.55'/%3E%3Ccircle cx='8.1' cy='10' r='.55'/%3E%3Ccircle cx='11.1' cy='10' r='.55'/%3E%3Ccircle cx='14.1' cy='10' r='.55'/%3E%3C/g%3E%3C/svg%3E");
     }
 
     * {
@@ -105,7 +108,7 @@
 
     .nav {
       position: absolute;
-      right: var(--header-edge);
+      right: calc(var(--header-edge) + var(--language-slot-w) + var(--nav-gap));
       top: 50%;
       transform: translateY(-50%);
       display: grid;
@@ -152,6 +155,154 @@
       background: #f28c28;
     }
 
+    .language-switcher {
+      position: absolute;
+      right: var(--header-edge);
+      top: 50%;
+      z-index: 3;
+      width: var(--language-slot-w);
+      transform: translateY(-50%);
+    }
+
+    .language-trigger {
+      position: relative;
+      width: var(--language-slot-w);
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 7px;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+      background: transparent;
+      color: #f4fbff;
+      cursor: pointer;
+      font: inherit;
+      line-height: 1;
+      transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+    }
+
+    .language-trigger::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -18px;
+      height: 3px;
+      background: #f28c28;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 180ms ease;
+    }
+
+    .language-trigger:hover,
+    .language-trigger:focus-visible {
+      color: #f28c28;
+      outline: none;
+    }
+
+    .language-switcher:hover .language-trigger::after,
+    .language-switcher:focus-within .language-trigger::after {
+      transform: scaleX(1);
+    }
+
+    .language-flag {
+      width: 25px;
+      height: 17px;
+      display: block;
+      border-radius: 3px;
+      background: var(--flag-korea) center / contain no-repeat;
+    }
+
+    .language-flag-en {
+      background-image: var(--flag-english);
+    }
+
+    .language-code {
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      line-height: 1;
+    }
+
+    .language-chevron {
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid currentColor;
+      opacity: 0.78;
+    }
+
+    .language-menu {
+      position: absolute;
+      right: 0;
+      top: calc(100% + 0px);
+      min-width: 84px;
+      padding: 6px;
+      border: 1px solid rgba(17, 20, 24, 0.08);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.18);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(-8px);
+      transition: opacity 160ms ease, transform 190ms cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0ms linear 160ms;
+    }
+
+    .language-switcher:hover .language-menu,
+    .language-switcher:focus-within .language-menu {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+      transition-delay: 0ms;
+    }
+
+    .language-option {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 7px;
+      padding: 8px 6px;
+      color: #3a424a;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .language-option::after {
+      content: "";
+      position: absolute;
+      left: 6px;
+      right: 6px;
+      bottom: 2px;
+      height: 2px;
+      background: #f28c28;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 160ms ease;
+    }
+
+    .language-option:hover::after,
+    .language-option:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    .language-option.is-disabled {
+      cursor: default;
+      color: #7c838b;
+    }
+
+    .language-option.is-disabled .language-flag,
+    .language-option.is-disabled .language-code {
+      opacity: 0.64;
+    }
+
     .mega-menu {
       position: absolute;
       left: 0;
@@ -171,7 +322,7 @@
     .mega-menu-inner {
       width: fit-content;
       max-width: calc(100% - (var(--header-edge) * 2));
-      margin: 0 var(--header-edge) 0 auto;
+      margin: 0 calc(var(--header-edge) + var(--language-slot-w) + var(--nav-gap)) 0 auto;
       min-height: var(--mega-menu-panel-h);
       padding: 32px 0 38px;
       display: grid;
@@ -248,6 +399,16 @@
       color: #111418;
     }
 
+    .site-header:hover .language-trigger,
+    .site-header:focus-within .language-trigger {
+      color: #111418;
+    }
+
+    .site-header:hover .language-trigger:hover,
+    .site-header:focus-within .language-trigger:focus-visible {
+      color: #0b8f9d;
+    }
+
     .site-header:hover .nav a:hover,
     .site-header:focus-within .nav a:focus-visible {
       color: #0b8f9d;
@@ -259,6 +420,15 @@
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
+      transition-delay: 0ms;
+    }
+
+    .language-switcher:hover ~ .mega-menu,
+    .language-switcher:focus-within ~ .mega-menu {
+      transform: translateY(-18px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
       transition-delay: 0ms;
     }
 
@@ -479,7 +649,8 @@
       }
 
       .brand,
-      .nav {
+      .nav,
+      .language-switcher {
         position: static;
         transform: none;
       }
@@ -496,6 +667,16 @@
         font-size: 12px;
         overflow-x: auto;
         justify-content: flex-start;
+        max-width: calc(100vw - 208px);
+      }
+
+      .language-switcher {
+        flex: 0 0 auto;
+        width: var(--language-slot-w);
+      }
+
+      .language-trigger {
+        height: 36px;
       }
 
       .hero {
@@ -546,6 +727,16 @@
       <a href="media.html">MEDIA</a>
       <a href="careers.html">CAREERS</a>
     </nav>
+    <div class="language-switcher" aria-label="Language selector">
+      <button class="language-trigger" type="button" aria-haspopup="listbox" aria-label="Current language: Korean">
+        <span class="language-flag" aria-hidden="true"></span>
+        <span class="language-code">KOR</span>
+        <span class="language-chevron" aria-hidden="true"></span>
+      </button>
+      <div class="language-menu" role="listbox" aria-label="Supported languages">
+        <span class="language-option is-disabled" role="option" aria-disabled="true"><span class="language-flag language-flag-en" aria-hidden="true"></span><span class="language-code">ENG</span></span>
+      </div>
+    </div>
     <div class="mega-menu" aria-label="Sub navigation">
       <div class="mega-menu-inner">
         <div class="mega-column">
