@@ -1,9 +1,7 @@
 (function () {
-  const PRESS_DATA_URL = "assets/data/news.json";
   const TRAILER_DATA_URL = "assets/data/trailers.json";
   const fallbackData = window.GPUN_MEDIA_DATA || {};
   const dataFallbacks = {
-    [PRESS_DATA_URL]: fallbackData.press,
     [TRAILER_DATA_URL]: fallbackData.trailers,
   };
   const useTrailerThumbnailLinks = window.location.protocol === "file:";
@@ -240,27 +238,21 @@
   };
 
   if (pressGrid) {
-    loadItems(PRESS_DATA_URL)
-      .then((items) => {
-        pressGrid.replaceChildren();
+    const items = normalizeItems(fallbackData.press || { items: [] });
+    pressGrid.replaceChildren();
 
-        if (!items.length) {
-          pressGrid.classList.add("news-grid-empty");
-          setPressStatus("표시할 프레스 자료가 없습니다.");
-          return;
-        }
+    if (!items.length) {
+      pressGrid.classList.add("news-grid-empty");
+      setPressStatus("표시할 프레스 자료가 없습니다.");
+    } else {
+      pressGrid.classList.remove("news-grid-empty");
+      items.forEach((item) => {
+        pressGrid.appendChild(createPressCard(item));
+      });
+      setPressStatus("");
+    }
 
-        items.forEach((item) => {
-          pressGrid.appendChild(createPressCard(item));
-        });
-
-        setPressStatus("");
-      })
-      .catch(() => {
-        pressGrid.replaceChildren();
-        setPressStatus("프레스 데이터를 불러오지 못했습니다. 잠시 후 다시 확인해 주세요.");
-      })
-      .finally(queueHashScroll);
+    queueHashScroll();
   }
 
   if (trailerGrid) {

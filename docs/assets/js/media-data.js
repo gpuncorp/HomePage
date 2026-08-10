@@ -2,7 +2,7 @@
     "press":  {
                   "generatedAt":  "2026-05-26T00:00:00+09:00",
                   "source":  {
-                                 "type":  "seed"
+                                 "type":  "hardcoded"
                              },
                   "items":  [
                                 {
