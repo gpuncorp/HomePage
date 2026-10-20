@@ -18,3 +18,5 @@ body{font-family:Inter,Pretendard,'Noto Sans KR',system-ui,-apple-system,BlinkMa
 .character-art img{position:absolute;left:50%;width:auto;max-width:none;object-fit:contain;object-position:center;transform:translateX(-50%)}
 .character-art img[src$="chii.webp"]{height:103%;bottom:-2.42%;margin-left:-2.1%}
 .character-art img[src$="lisa.webp"]{height:93.53%;bottom:2.6%}
+/* Hero copy sits nearer navigation, with a compact opening section. */
+.hero{align-items:flex-start;min-height:680px;height:85svh}.hero-content{padding-top:155px;padding-bottom:130px}@media(max-width:700px){.hero{min-height:650px;height:auto}.hero-content{padding-top:135px;padding-bottom:130px}}
