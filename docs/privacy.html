@@ -45,7 +45,6 @@
   <h3 id="ko-1">1. 개인정보의 처리 목적</h3>
   <p>회사는 다음 목적을 위해 개인정보를 처리하며, 목적이 변경되는 경우 관련 법령에 따라 필요한 조치를 이행합니다.</p>
   <ul>
-    <li>게임 서비스 제공: 게임 진행 데이터 저장 및 게임 기능 제공</li>
     <li>서비스 품질 개선: 오류·충돌 원인 분석, 게임 밸런스 및 이용 통계 분석</li>
     <li>이용자 문의 대응: 문의 접수, 사실 확인, 처리 결과 안내</li>
     <li>부정 이용 방지: 비정상적 이용 및 운영 정책 위반 행위 확인·제재</li>
@@ -55,7 +54,7 @@
   <p>회사는 게임 내에서 별도의 회원가입을 받지 않으며, 서비스별로 아래 항목을 처리합니다.</p>
   <div class="table-wrap"><table>
     <tr><th>서비스</th><th>처리 항목</th><th>수집 방법</th></tr>
-    <tr><td>HEAVENBREAK<br>(Steam)</td><td>Steam 계정 식별자(SteamID), Steam 닉네임, 게임 플레이 기록(진행도, 전투 결과, 선택 내역 등), 기기 정보(운영체제, CPU·GPU 사양, 그래픽 설정), 오류·충돌 로그, 접속 IP 주소</td><td>게임 실행 및 이용 과정에서 자동 수집, Steam(Valve Corporation)으로부터 제공</td></tr>
+    <tr><td>HEAVENBREAK<br>(Steam)</td><td>게임 이용 기록(진행도, 전투 결과, 선택 내역 등), 기기 정보(운영체제, CPU·GPU 사양, 그래픽 설정), 설치 고유 식별자, 오류·충돌 로그, 접속 IP 주소</td><td>게임 실행 및 이용 과정에서 자동 수집</td></tr>
     <tr><td>브루노의 대장간</td><td>출시 전으로, 출시 시점에 처리 항목을 본 방침에 추가하여 공지합니다.</td><td>—</td></tr>
     <tr><td>고객 문의</td><td>이메일 주소, 문의 내용 및 이용자가 첨부한 자료</td><td>이메일 문의 시 이용자가 직접 제공</td></tr>
   </table></div>
@@ -63,8 +62,7 @@
 
   <h3 id="ko-3">3. 개인정보의 보유 및 이용 기간</h3>
   <ul>
-    <li>게임 플레이 기록 및 계정 식별자: 서비스 종료 시 또는 이용자의 삭제 요청 시까지</li>
-    <li>오류·충돌 로그, 기기 정보, 접속 IP: 수집일로부터 1년</li>
+    <li>게임 이용 기록, 기기 정보, 설치 고유 식별자, 오류·충돌 로그, 접속 IP: 수집일로부터 13개월</li>
     <li>고객 문의 기록: 처리 완료일로부터 3년</li>
   </ul>
   <p>다만 관계 법령에 따라 보존할 필요가 있는 경우 해당 법령이 정한 기간 동안 보관합니다.</p>
@@ -75,8 +73,8 @@
   <h3 id="ko-5">5. 개인정보 처리 위탁 및 국외 이전</h3>
   <p>회사는 원활한 서비스 제공을 위해 다음과 같이 개인정보 처리 업무를 위탁하고 있습니다.</p>
   <div class="table-wrap"><table>
-    <tr><th>수탁자</th><th>위탁 업무</th><th>이전 국가</th><th>이전 항목</th><th>보유 기간</th></tr>
-    <tr><td>[서버 업체명]</td><td>게임 서버 및 데이터 저장</td><td>[서버 위치 국가]</td><td>제2조의 게임 관련 항목</td><td>위탁 계약 종료 시까지</td></tr>
+    <tr><th>수탁자(이전받는 자)</th><th>위탁 업무</th><th>이전 국가</th><th>이전 항목</th><th>이전 일시·방법</th><th>보유 기간</th><th>연락처</th></tr>
+    <tr><td>Unity Technologies</td><td>게임 이용 통계 수집, 저장 및 분석</td><td>네덜란드(Google Cloud 유럽 리전), 미국</td><td>제2조의 HEAVENBREAK 항목</td><td>게임 이용 시 네트워크를 통해 수시 전송</td><td>수집일로부터 13개월</td><td>DPO@unity3d.com</td></tr>
   </table></div>
   <p>국외 이전은 서비스 이용 시 네트워크를 통해 수시로 이루어집니다. 이용자는 국외 이전을 거부할 수 있으나, 이 경우 게임 서비스의 일부 또는 전부를 이용할 수 없습니다. 위탁 업무나 수탁자가 변경되는 경우 본 방침을 통해 공개합니다.</p>
 
@@ -93,7 +91,7 @@
   <ul>
     <li>관리적 조치: 개인정보 취급자 최소화 및 정기 교육</li>
     <li>기술적 조치: 접근 권한 관리, 전송 구간 암호화, 접속 기록 보관</li>
-    <li>물리적 조치: 클라우드 사업자의 보안 인증 데이터센터 이용</li>
+    <li>물리적 조치: 보안 인증을 받은 수탁자의 데이터센터 이용</li>
   </ul>
 
   <h3 id="ko-10">10. 자동 수집 장치의 설치·운영 및 거부</h3>
@@ -130,7 +128,6 @@
 
   <h3>1. Purposes of Processing</h3>
   <ul>
-    <li>Providing the games: saving game progress and providing game features</li>
     <li>Improving the Services: analyzing errors and crashes, game balance and usage statistics</li>
     <li>Responding to inquiries</li>
     <li>Preventing fraud and abuse</li>
@@ -140,7 +137,7 @@
   <p>We do not require a separate account registration in our games. We process the following, by service:</p>
   <div class="table-wrap"><table>
     <tr><th>Service</th><th>Information</th><th>How collected</th></tr>
-    <tr><td>HEAVENBREAK<br>(Steam)</td><td>Steam account identifier (SteamID), Steam display name, gameplay records (progress, battle results, choices), device information (OS, CPU/GPU specs, graphics settings), error and crash logs, IP address</td><td>Automatically while you play; provided by Steam (Valve Corporation)</td></tr>
+    <tr><td>HEAVENBREAK<br>(Steam)</td><td>Gameplay records (progress, battle results, choices), device information (OS, CPU/GPU specs, graphics settings), installation identifier, error and crash logs, IP address</td><td>Automatically while you play</td></tr>
     <tr><td>Bruno's Forge</td><td>Not yet released. We will update this policy before launch.</td><td>—</td></tr>
     <tr><td>Inquiries</td><td>Email address, contents of your inquiry and any attachments</td><td>Provided by you</td></tr>
   </table></div>
@@ -148,8 +145,7 @@
 
   <h3>3. Retention</h3>
   <ul>
-    <li>Gameplay records and account identifiers: until the Service ends or you request deletion</li>
-    <li>Error/crash logs, device information, IP address: 1 year from collection</li>
+    <li>Gameplay records, device information, installation identifier, error/crash logs, IP address: 13 months from collection</li>
     <li>Inquiry records: 3 years after resolution</li>
   </ul>
   <p>Where the law requires longer retention, we retain the information for the period required.</p>
@@ -159,8 +155,8 @@
 
   <h3>5. Processors and International Transfers</h3>
   <div class="table-wrap"><table>
-    <tr><th>Processor</th><th>Task</th><th>Country</th><th>Items</th><th>Retention</th></tr>
-    <tr><td>[Server provider]</td><td>Game servers and data storage</td><td>[Server country]</td><td>Game-related items in Section 2</td><td>Until the contract ends</td></tr>
+    <tr><th>Processor (Recipient)</th><th>Task</th><th>Country</th><th>Items</th><th>Transfer timing and method</th><th>Retention</th><th>Contact</th></tr>
+    <tr><td>Unity Technologies</td><td>Collecting, storing and analyzing gameplay statistics</td><td>Netherlands (Google Cloud EU region), USA</td><td>HEAVENBREAK items in Section 2</td><td>Sent over the network during play</td><td>13 months from collection</td><td>DPO@unity3d.com</td></tr>
   </table></div>
   <p>Transfers occur over the network while you use the Services. You may refuse the transfer, but you may then be unable to use some or all of the game features.</p>
 
@@ -174,7 +170,7 @@
   <p>We do not knowingly collect personal information from children under 14 (or the minimum age required in your country). If we learn that we have, we will delete it without delay.</p>
 
   <h3>9. Security</h3>
-  <p>We limit access to personal information, encrypt data in transit, keep access logs and use secure, certified cloud data centers.</p>
+  <p>We limit access to personal information, encrypt data in transit, keep access logs and use the processor’s security-certified data centers.</p>
 
   <h3>10. Cookies</h3>
   <p>Our website (gpun.co.kr) does not use tracking cookies beyond basic functions such as language settings.</p>
